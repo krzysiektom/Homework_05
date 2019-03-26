@@ -1,5 +1,6 @@
 package pl.coderslab;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import pl.coderslab.beans.Customer;
 import pl.coderslab.beans.CustomerLogger;
@@ -10,9 +11,10 @@ public class SpringDiApplication {
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(AppConfig.class);
 
-        CustomerLogger customerLogger =context.getBean(CustomerLogger.class);
+
+        CustomerLogger customerLogger = context.getBean(CustomerLogger.class);
         customerLogger.log();
-        Customer customer = new Customer(1,"Ala","Nowak","AN");
+        Customer customer = new Customer(1, "Ala", "Nowak", "AN");
         MemoryCustomerRepository memoryCustomerRepository = context.getBean(MemoryCustomerRepository.class);
         memoryCustomerRepository.addCustomer(customer);
         memoryCustomerRepository.showCustomers();
