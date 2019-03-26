@@ -47,5 +47,13 @@ public class Customer {
         this.nick = nick;
     }
 
-
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", nick='" + nick + '\'' +
+                '}';
+    }
 }
